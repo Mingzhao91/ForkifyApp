@@ -11,6 +11,18 @@ export const clearResults = () => {
   elements.searchResPages.innerHTML = '';
 };
 
+export const highlightSelected = id => {
+  const resultsArr = Array.from(
+    document.querySelectorAll(`.${elementStrings.searchResItem}`)
+  );
+  resultsArr.forEach(el => {
+    el.classList.remove(elementStrings.searchResItemSelected);
+  });
+  document
+    .querySelector(`a[href="#${id}"]`)
+    .classList.add(elementStrings.searchResItemSelected);
+};
+
 const limitRecipeTitle = (title, limit = 17) => {
   const newTitle = [];
 
@@ -31,7 +43,7 @@ const limitRecipeTitle = (title, limit = 17) => {
 const renderRecipe = recipe => {
   const markup = `
     <li>
-        <a class="results__link" href="#${recipe.recipe_id}">
+        <a class="${elementStrings.searchResItem}" href="#${recipe.recipe_id}">
             <figure class="results__fig">
                 <img src="${recipe.image_url}" alt="${recipe.title}">
             </figure>
@@ -82,12 +94,14 @@ const renderButtons = (page, numResults, resPerPage) => {
 };
 
 export const renderResults = (recipes, page = 1, resPerPage = 10) => {
-  // render results of current page
-  const start = (page - 1) * resPerPage;
-  const end = page * resPerPage;
+  if (recipes) {
+    // render results of current page
+    const start = (page - 1) * resPerPage;
+    const end = page * resPerPage;
 
-  recipes.slice(start, end).forEach(renderRecipe);
+    recipes.slice(start, end).forEach(renderRecipe);
 
-  // render pagination buttons
-  renderButtons(page, recipes.length, resPerPage);
+    // render pagination buttons
+    renderButtons(page, recipes.length, resPerPage);
+  }
 };
