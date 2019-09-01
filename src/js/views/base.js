@@ -3,12 +3,15 @@ export const elements = {
     searchInput: document.querySelector('.search__field'),
     searchResList: document.querySelector('.results__list'),
     searchRes: document.querySelector('.results'),
-    searchResPages: document.querySelector('.results__pages')
+    searchResPages: document.querySelector('.results__pages'),
+    recipe: document.querySelector('.recipe')
 };
 
 export const elementStrings = {
     loader: 'loader',
-    paginationBtn: 'btn-inline'
+    paginationBtn: 'btn-inline',
+    searchResItem: 'results__link',
+    searchResItemSelected: 'results__link--active'
 };
 
 export const renderLoader = parent => {
