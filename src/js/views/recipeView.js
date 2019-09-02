@@ -1,4 +1,4 @@
-import { elements } from './base';
+import { elements, elementStrings } from './base';
 import { Fraction } from 'fractional';
 
 export const clearRecipe = () => {
@@ -27,7 +27,7 @@ const createIngredient = ingredient => `
         <svg class="recipe__icon">
             <use href="img/icons.svg#icon-check"></use>
         </svg>
-        <div class="recipe__count">${formatCount(ingredient.count)}</div>
+        <div class="${elementStrings.recipeCount}">${formatCount(ingredient.count)}</div>
         <div class="recipe__ingredient">
             <span class="recipe__unit">${ingredient.unit}</span>
             ${ingredient.ingredient}
@@ -56,16 +56,16 @@ export const renderRecipe = recipe => {
             <svg class="recipe__info-icon">
                 <use href="img/icons.svg#icon-man"></use>
             </svg>
-            <span class="recipe__info-data recipe__info-data--people">${recipe.servings}</span>
+            <span class="recipe__info-data ${elementStrings.recipeServings}">${recipe.servings}</span>
             <span class="recipe__info-text"> servings</span>
 
             <div class="recipe__info-buttons">
-                <button class="btn-tiny">
+                <button class="btn-tiny ${elementStrings.btnDecrease}">
                     <svg>
                         <use href="img/icons.svg#icon-circle-with-minus"></use>
                     </svg>
                 </button>
-                <button class="btn-tiny">
+                <button class="btn-tiny ${elementStrings.btnIncrease}">
                     <svg>
                         <use href="img/icons.svg#icon-circle-with-plus"></use>
                     </svg>
@@ -110,4 +110,15 @@ export const renderRecipe = recipe => {
     `;
 
     elements.recipe.insertAdjacentHTML('afterbegin', markup);
+};
+
+export const updateServingsIngredients = recipe => {
+    // Update servings
+    document.querySelector(`.${elementStrings.recipeServings}`).textContent = recipe.servings;
+
+    // Update ingredients
+    const countElements = Array.from(document.querySelectorAll(`.${elementStrings.recipeCount}`));
+    countElements.forEach((el, i) => {
+        el.textContent = formatCount(recipe.ingredients[i].count);
+    });
 };

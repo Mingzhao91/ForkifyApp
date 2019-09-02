@@ -11,7 +11,11 @@ export const elementStrings = {
     loader: 'loader',
     paginationBtn: 'btn-inline',
     searchResItem: 'results__link',
-    searchResItemSelected: 'results__link--active'
+    searchResItemSelected: 'results__link--active',
+    btnDecrease: 'btn-decrease',
+    btnIncrease: 'btn-increase',
+    recipeServings: 'recipe__info-data--people',
+    recipeCount: 'recipe__count'
 };
 
 export const renderLoader = parent => {
