@@ -5,7 +5,9 @@ export const elements = {
     searchRes: document.querySelector('.results'),
     searchResPages: document.querySelector('.results__pages'),
     recipe: document.querySelector('.recipe'),
-    shopping: document.querySelector('.shopping__list')
+    shopping: document.querySelector('.shopping__list'),
+    likesMenu: document.querySelector('.likes__field'),
+    likesList: document.querySelector('.likes__list')
 };
 
 export const elementStrings = {
@@ -21,7 +23,8 @@ export const elementStrings = {
     shoppingItem: 'shopping__item',
     btnDeleteShoppingItem: 'shopping__delete',
     btnUpdateShoppingItemCount: 'shopping__count-value',
-    btnLike: 'recipe__love'
+    btnLike: 'recipe__love',
+    likesLink: 'likes__link'
 };
 
 export const renderLoader = parent => {
