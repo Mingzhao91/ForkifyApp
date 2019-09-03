@@ -20,7 +20,8 @@ export const elementStrings = {
     btnAddRecipe: 'recipe__btn--add',
     shoppingItem: 'shopping__item',
     btnDeleteShoppingItem: 'shopping__delete',
-    btnUpdateShoppingItemCount: 'shopping__count-value'
+    btnUpdateShoppingItemCount: 'shopping__count-value',
+    btnLike: 'recipe__love'
 };
 
 export const renderLoader = parent => {
