@@ -4,7 +4,8 @@ export const elements = {
     searchResList: document.querySelector('.results__list'),
     searchRes: document.querySelector('.results'),
     searchResPages: document.querySelector('.results__pages'),
-    recipe: document.querySelector('.recipe')
+    recipe: document.querySelector('.recipe'),
+    shopping: document.querySelector('.shopping__list')
 };
 
 export const elementStrings = {
@@ -15,7 +16,11 @@ export const elementStrings = {
     btnDecrease: 'btn-decrease',
     btnIncrease: 'btn-increase',
     recipeServings: 'recipe__info-data--people',
-    recipeCount: 'recipe__count'
+    recipeCount: 'recipe__count',
+    btnAddRecipe: 'recipe__btn--add',
+    shoppingItem: 'shopping__item',
+    btnDeleteShoppingItem: 'shopping__delete',
+    btnUpdateShoppingItemCount: 'shopping__count-value'
 };
 
 export const renderLoader = parent => {
